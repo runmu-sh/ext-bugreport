@@ -1,0 +1,64 @@
+{
+  "name": "@runmu.sh/ext-bugreport",
+  "version": "1.0.0",
+  "description": "A bug report panel for Torchship: write a report (subject, severity, category, what happened), attach the last error the game showed you, file it, and follow your reports, from GMCP Bug. One-click [ ⚠ BUG ] button, ☰ menu row and command.",
+  "keywords": ["bug", "bug-report", "torchship", "gmcp", "panel", "feedback"],
+  "license": "MIT",
+  "homepage": "https://runmu.sh/marketplace/x/bugreport",
+  "repository": { "type": "git", "url": "git+https://github.com/runmu-sh/ext-bugreport.git" },
+  "bugs": { "url": "https://github.com/runmu-sh/ext-bugreport/issues" },
+  "type": "module",
+  "exports": "./dist/index.js",
+  "types": "./src/types.ts",
+  "files": ["dist", "schema", "src/types.ts", "README.md", "CHANGELOG.md"],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "typecheck": "tsc --noEmit",
+    "check": "node scripts/build.mjs --check",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@muclient/sdk": "npm:@runmu.sh/sdk@^1.16.0",
+    "@runmu.sh/dev": "^0.5.0",
+    "esbuild": "^0.28.2",
+    "happy-dom": "^20.0.0",
+    "typescript": "^5.9.0"
+  },
+  "engines": { "node": ">=20" },
+  "muclient": {
+    "id": "bugreport",
+    "api": "^1.14",
+    "source": "src/index.ts",
+    "displayName": "Bug report",
+    "description": "A bug report panel for Torchship: write a report (subject, severity, category, what happened), attach the last error the game showed you, file it, and follow your reports, from GMCP Bug. One-click [ ⚠ BUG ] button, ☰ menu row and command.",
+    "categories": ["interface", "utility"],
+    "activation": ["onGmcp:Bug"],
+    "contributes": {
+      "panels": [
+        { "id": "bugreport", "title": "Bug report", "order": 45, "defaultPosition": "right-bottom", "singleton": true }
+      ],
+      "commands": [
+        { "id": "bugreport.open", "title": "Report a bug" }
+      ],
+      "gmcp": [
+        {
+          "package": "Bug 1",
+          "messages": {
+            "Bug.Draft": { "dir": "in", "schema": "schema/draft.json" },
+            "Bug.Result": { "dir": "in", "schema": "schema/result.json" },
+            "Bug.Traceback": { "dir": "in", "schema": "schema/traceback.json" },
+            "Bug.Get": { "dir": "out", "schema": "schema/empty.json" },
+            "Bug.Open": { "dir": "out", "schema": "schema/empty.json" },
+            "Bug.Save": { "dir": "out", "schema": "schema/fields.json" },
+            "Bug.Submit": { "dir": "out", "schema": "schema/fields.json" },
+            "Bug.Abort": { "dir": "out", "schema": "schema/empty.json" },
+            "Bug.Mine": { "dir": "both", "schema": "schema/mine.json" }
+          }
+        }
+      ]
+    },
+    "capabilities": ["send-commands"],
+    "publisher": "bitmuse"
+  }
+}

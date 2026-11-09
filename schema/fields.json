@@ -1,0 +1,11 @@
+{
+  "$comment": "Bug.Save / Bug.Submit (out): the fields to set on the draft, each optional. An empty subject or body clears it. Submit files the draft after saving them.",
+  "type": "object",
+  "properties": {
+    "subject": { "type": "string" },
+    "body": { "type": "string" },
+    "severity": { "type": "string" },
+    "category": { "type": "string" },
+    "traceback": { "type": "boolean" }
+  }
+}

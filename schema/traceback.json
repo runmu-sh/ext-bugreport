@@ -1,0 +1,13 @@
+{
+  "$comment": "Bug.Traceback (in): the error the game just showed this character; also last_traceback in Bug.Draft.",
+  "type": "object",
+  "properties": {
+    "time": { "type": "integer" },
+    "code": { "type": "string" },
+    "msg": { "type": "string" },
+    "where": { "type": "string" },
+    "command": { "type": "string" },
+    "location": { "type": "string" },
+    "traceback": { "type": "array", "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$comment": "Bug.Draft (in): the open @bug draft (open false: none), the choices, and the last recorded error.",
+  "type": "object",
+  "required": ["open"],
+  "properties": {
+    "open": { "type": "boolean" },
+    "severities": { "type": "array", "items": { "type": "string" } },
+    "categories": { "type": "array", "items": { "type": "string" } },
+    "draft": {
+      "type": "object",
+      "properties": {
+        "subject": { "type": "string" },
+        "body": { "type": "string" },
+        "severity": { "type": "string" },
+        "category": { "type": "string" },
+        "traceback": { "type": "boolean" },
+        "started": { "type": "integer" },
+        "location": { "type": "string" }
+      }
+    },
+    "last_traceback": { "$ref": "#/$defs/tb" }
+  },
+  "$defs": {
+    "tb": {
+      "type": "object",
+      "properties": {
+        "time": { "type": "integer" }, "code": { "type": "string" }, "msg": { "type": "string" }, "where": { "type": "string" },
+        "command": { "type": "string" }, "location": { "type": "string" }, "traceback": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

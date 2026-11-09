@@ -1,0 +1,35 @@
+{
+  "$comment": "Bug.Mine: in, the character's own bug reports, newest first, at most 10; out ({}), ask for them again.",
+  "type": "object",
+  "properties": {
+    "reports": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "subject"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "created": {
+            "type": "integer"
+          },
+          "updated": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

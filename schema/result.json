@@ -1,0 +1,11 @@
+{
+  "$comment": "Bug.Result (in): what became of the last action. action: open, save, set, submit, abort; id: the filed report's number.",
+  "type": "object",
+  "required": ["action", "ok"],
+  "properties": {
+    "action": { "type": "string" },
+    "ok": { "type": "boolean" },
+    "message": { "type": "string" },
+    "id": { "type": "integer" }
+  }
+}
